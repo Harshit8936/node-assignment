@@ -1,0 +1,38 @@
+<%- include('layout/header') %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="/api/user/payment/new/transfer" class="text-success">New Transfer</a>
+                <div class="table-responsive">
+                    <% if(payments != '') { %>
+                        <table class="table table-stripped text-center">
+                            <thead>
+                                <tr class="table-dark">
+                                    <th scope="col">S.no</th>
+                                    <th scope="col">Amount Transfer</th>
+                                    <th scope="col">To Account</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% payments.forEach(function(payment,index) { %>
+                                <tr class="align-middle">
+                                    <td><%= index %></td>
+                                    <td><%= payment.transferamount %></td>
+                                    <td><%= payment.toAccount %></td>
+                                </tr>
+                            </tbody>
+                            <% }) %>
+                        </table>
+                    <% } else { %>
+                        <h1 class="text-center text-secondary">No History found in database</h1>
+                 <% } %>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <%- include('layout/footer') %>
